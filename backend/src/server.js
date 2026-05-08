@@ -154,6 +154,16 @@ app.use('/api/certificates', certificateRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/discussions', discussionRoutes);
 
+// Root route - friendly message
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: '🎓 LearnHub API',
+    version: '1.0.0',
+    docs: '/api/health',
+  });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.status(200).json({
