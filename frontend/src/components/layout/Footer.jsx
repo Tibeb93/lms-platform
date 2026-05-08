@@ -47,7 +47,7 @@ export default function Footer() {
                 { icon: Linkedin, href: '#' },
                 { icon: Github, href: '#' },
                 { icon: Youtube, href: '#' },
-                { icon: Mail, href: 'mailto:hello@learnhub.com' },
+                { icon: Mail, href: 'mailto:gkiflemeskel@gmail.com' },
               ].map(({ icon: Icon, href }, i) => (
                 <a key={i} href={href} className="p-2 bg-gray-800 rounded-lg hover:bg-brand-600 transition-colors">
                   <Icon className="w-4 h-4" />
@@ -75,6 +75,13 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-500">© {year} LearnHub. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-3 text-sm text-gray-500">
+            <span>📍 Bahir Dar, Ethiopia</span>
+            <span className="hidden sm:block">•</span>
+            <a href="tel:+251911956080" className="hover:text-white transition-colors">📞 +251 911 956 080</a>
+            <span className="hidden sm:block">•</span>
+            <a href="mailto:gkiflemeskel@gmail.com" className="hover:text-white transition-colors">✉️ gkiflemeskel@gmail.com</a>
+          </div>
           <div className="flex items-center gap-4 text-sm text-gray-500">
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>

@@ -19,7 +19,10 @@ export default function Navbar() {
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
-  const [darkMode, setDarkMode] = useState(() => document.documentElement.classList.contains('dark'));
+  const [darkMode, setDarkMode] = useState(() => {
+    // Read from localStorage — default is dark
+    return localStorage.getItem('theme') !== 'light';
+  });
   const userMenuRef = useRef(null);
   const notifRef = useRef(null);
 
@@ -53,8 +56,15 @@ export default function Navbar() {
   };
 
   const toggleDark = () => {
-    document.documentElement.classList.toggle('dark');
-    setDarkMode(!darkMode);
+    const newMode = !darkMode;
+    if (newMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+    setDarkMode(newMode);
   };
 
   const handleLogout = async () => {

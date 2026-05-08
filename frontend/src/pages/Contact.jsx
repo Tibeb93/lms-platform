@@ -31,9 +31,9 @@ export default function Contact() {
             <h2 className="text-2xl font-heading font-bold mb-6">Get in Touch</h2>
             <div className="space-y-4">
               {[
-                { icon: Mail, label: 'Email', value: 'hello@learnhub.com' },
-                { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567' },
-                { icon: MapPin, label: 'Address', value: '123 Learning St, San Francisco, CA 94102' },
+                { icon: Mail, label: 'Email', value: 'gkiflemeskel@gmail.com', href: 'mailto:gkiflemeskel@gmail.com' },
+                { icon: Phone, label: 'Phone', value: '+251 911 956 080', href: 'tel:+251911956080' },
+                { icon: MapPin, label: 'Address', value: 'Bahir Dar, Ethiopia', href: 'https://maps.google.com/?q=Bahir+Dar,Ethiopia' },
               ].map((item) => {
                 const Icon = item.icon;
                 return (
@@ -43,7 +43,14 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-sm">{item.label}</p>
-                      <p className="text-muted-foreground text-sm">{item.value}</p>
+                      <a
+                        href={item.href}
+                        target={item.label === 'Address' ? '_blank' : undefined}
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground text-sm hover:text-brand-600 transition-colors"
+                      >
+                        {item.value}
+                      </a>
                     </div>
                   </div>
                 );
