@@ -106,7 +106,7 @@ const courseSchema = new mongoose.Schema(
 );
 
 // Generate slug before saving
-courseSchema.pre('save', function (next) {
+courseSchema.pre('save', function () {
   if (this.isModified('title')) {
     this.slug = slugify(this.title, { lower: true, strict: true }) + '-' + Date.now();
   }
@@ -121,7 +121,6 @@ courseSchema.pre('save', function (next) {
   });
   this.totalDuration = totalDuration;
   this.totalLessons = totalLessons;
-  next();
 });
 
 // Virtual for effective price
